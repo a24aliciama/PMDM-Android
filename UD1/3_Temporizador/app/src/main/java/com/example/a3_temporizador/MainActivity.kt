@@ -46,10 +46,7 @@ class MainActivity : AppCompatActivity() {
                 chrono.base = savedInstanceState.getLong(BASE_KEY)
                 chrono.start()
             }else{
-                chrono.base = savedInstanceState.getLong(BASE_KEY)
-                offset = SystemClock.elapsedRealtime() - chrono.base
-                chrono.stop()
-                running = false
+                chrono.base = SystemClock.elapsedRealtime() - offset
             }
         }
 
@@ -82,4 +79,45 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onStop() {
+        if(running){
+            offset = SystemClock.elapsedRealtime() - chrono.base
+            chrono.stop()
+        }
+        super.onStop()
+    }
+
+    override fun onRestart() {
+
+        if (running){
+            chrono.base = SystemClock.elapsedRealtime() - offset
+            chrono.start()
+        }
+
+        super.onRestart()
+    }
+
+    override fun onPause() {
+
+        if (running){
+            offset = SystemClock.elapsedRealtime() - chrono.base
+            chrono.stop()
+        }
+
+        super.onPause()
+
+    }
+
+    override fun onResume() {
+
+        if (running){
+            chrono.base = SystemClock.elapsedRealtime() - offset
+            chrono.start()
+        }
+
+        super.onResume()
+    }
+
+
 }
