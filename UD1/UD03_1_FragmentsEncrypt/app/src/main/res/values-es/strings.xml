@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SecretApp</string>
+    <string name="welcome_text">Bienvenido a la app Secret Message! Usa esta app para encriptar un mensaje secreto</string>
+    <string name="Start">Iniciar</string>
+    <string name="next">Siguiente</string>
+    <string name="encrypt_text">Aquí esta tu mensaje encriptado!</string>
+</resources>
