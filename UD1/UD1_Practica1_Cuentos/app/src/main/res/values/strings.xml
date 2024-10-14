@@ -1,3 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">UD1_Practica1_Cuentos</string>
+    <string name="app_name">Contos de Samain</string>
+    <string name="TextoNombre">Pon o teu nome aqui</string>
+    <string name="seleccion">Escolle unha Historia</string>
 </resources>

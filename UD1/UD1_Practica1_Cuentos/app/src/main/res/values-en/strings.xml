@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Samains Tells</string>
+    <string name="TextoNombre">Write your name here</string>
+    <string name="seleccion">Choose your story</string>
+</resources>
