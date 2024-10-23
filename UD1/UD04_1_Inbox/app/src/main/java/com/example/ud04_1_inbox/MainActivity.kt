@@ -10,13 +10,19 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+    //Una actividad en Android es como una pantalla, la parte visible con la que el usuario interactúa.
+
+    //Se ejecuta cuando la actividad es creada por primera vez, como cuando el usuario abre la aplicación.
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState) //Llama a la función original de onCreate en AppCompatActivity. Es decir, se asegura de que se inicialice correctamente antes de añadir cosas nuestras.
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -26,10 +32,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.container_fragment) as NavHostController
-        val navController = navHostFragment.navController
-        toolbar.setupWithNavController(navController)
+        setSupportActionBar(toolbar) //esto es para decir que viene por defecto y asi sustituye la que viene por defecto
+
+        //controlador de navegacion
+        val navHostFragmento = supportFragmentManager.findFragmentById(R.id.container_fragment) as NavHostFragment
+
+        val navControla = navHostFragmento.navController
+
+        val appBarConfiguration = AppBarConfiguration.Builder(navControla.graph).build()
+        toolbar.setupWithNavController(navControla, appBarConfiguration)
+
+
+        val barraAbajo = findViewById<BottomNavigationView>(R.id.bottomtoolbar)
+        barraAbajo.setupWithNavController(navControla)
 
     }
 

@@ -7,11 +7,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary" />
+        android:layout_height="?attr/actionBarSize" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container_fragment"
@@ -20,11 +21,37 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:navGraph="@navigation/nav_graph"
         app:defaultNavHost="true"
+        android:layout_weight="1"
         />
-    <!--app:defaultNavHost="true" es para volver pa tras.
+
+    <!--
+     app:defaultNavHost="true" es para volver pa tras.
+
      android:name="androidx.navigation.fragment.NavHostFragment" para decir que fragmento
-      quieres pintar, como queremos varios le decimos que es un host de navegacion (donde hay varios)
-       app:navGraph="@navigation/nav_graph" este es el host de navegacion donde estan los fragmentos
-       android:name="com.example.ud04_1_inbox.HelpFragment"-->
+     quieres pintar, como queremos varios le decimos que es un host de navegacion (donde hay varios)
+
+     app:navGraph="@navigation/nav_graph" este es el host de navegacion donde estan los fragmentos
+     android:name="com.example.ud04_1_inbox.HelpFragment"
+    -->
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/sidetoolbar"
+        app:headerLayout="@layout/header_nav_left"
+        app:menu="@menu/menu_side"
+        >
+
+    </com.google.android.material.navigation.NavigationView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomtoolbar"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemIconTint="#FFFFFF"
+
+        app:itemTextColor="#FFFFFF"
+        app:menu="@menu/menu_bottom" />
 
 </LinearLayout>
