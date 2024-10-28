@@ -1,57 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main"
+    android:id="@+id/layoutPintable"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     >
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize" />
+    <LinearLayout
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/container_fragment"
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        app:navGraph="@navigation/nav_graph"
-        app:defaultNavHost="true"
-        android:layout_weight="1"
-        />
+        android:orientation="vertical"
+        >
 
-    <!--
-     app:defaultNavHost="true" es para volver pa tras.
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
 
-     android:name="androidx.navigation.fragment.NavHostFragment" para decir que fragmento
-     quieres pintar, como queremos varios le decimos que es un host de navegacion (donde hay varios)
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/container_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            app:navGraph="@navigation/nav_graph"
+            app:defaultNavHost="true"
+            android:layout_weight="1"
+            />
 
-     app:navGraph="@navigation/nav_graph" este es el host de navegacion donde estan los fragmentos
-     android:name="com.example.ud04_1_inbox.HelpFragment"
-    -->
+        <!--
+         app:defaultNavHost="true" es para volver pa tras.
+
+         android:name="androidx.navigation.fragment.NavHostFragment" para decir que fragmento
+         quieres pintar, como queremos varios le decimos que es un host de navegacion (donde hay varios)
+
+         app:navGraph="@navigation/nav_graph" este es el host de navegacion donde estan los fragmentos
+         android:name="com.example.ud04_1_inbox.HelpFragment"
+        -->
+
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomtoolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:itemIconTint="#FFFFFF"
+
+            app:itemTextColor="#FFFFFF"
+            app:menu="@menu/menu_bottom" />
+
+    </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/sidetoolbar"
-        app:headerLayout="@layout/header_nav_left"
-        app:menu="@menu/menu_side"
+    android:id="@+id/sidetoolbar"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    app:headerLayout="@layout/header_nav_left"
+    app:menu="@menu/menu_side"
+    android:layout_gravity="start"
         >
 
     </com.google.android.material.navigation.NavigationView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomtoolbar"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemIconTint="#FFFFFF"
+</androidx.drawerlayout.widget.DrawerLayout>
 
-        app:itemTextColor="#FFFFFF"
-        app:menu="@menu/menu_bottom" />
-
-</LinearLayout>

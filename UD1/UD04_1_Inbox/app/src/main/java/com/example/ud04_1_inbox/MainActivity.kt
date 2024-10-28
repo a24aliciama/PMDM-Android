@@ -1,5 +1,6 @@
 package com.example.ud04_1_inbox
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -7,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.findNavController
@@ -16,11 +18,13 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
     //Una actividad en Android es como una pantalla, la parte visible con la que el usuario interactúa.
 
     //Se ejecuta cuando la actividad es creada por primera vez, como cuando el usuario abre la aplicación.
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState) //Llama a la función original de onCreate en AppCompatActivity. Es decir, se asegura de que se inicialice correctamente antes de añadir cosas nuestras.
         enableEdgeToEdge()
@@ -34,17 +38,29 @@ class MainActivity : AppCompatActivity() {
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
         setSupportActionBar(toolbar) //esto es para decir que viene por defecto y asi sustituye la que viene por defecto
 
+        //recuperamso el elemento padre (el layout)
+        val layoutPintador = findViewById<DrawerLayout>(R.id.layoutPintable)
+
         //controlador de navegacion
         val navHostFragmento = supportFragmentManager.findFragmentById(R.id.container_fragment) as NavHostFragment
-
         val navControla = navHostFragmento.navController
 
-        val appBarConfiguration = AppBarConfiguration.Builder(navControla.graph).build()
-        toolbar.setupWithNavController(navControla, appBarConfiguration)
+        //barra de arriba y controlador de navegacion
+        val appBarConfiguration = AppBarConfiguration.Builder(navControla.graph) //le pasamos el grafo de navegacion
+            //indico que hay un elemento abrible antes de construirla
+            appBarConfiguration.setOpenableLayout(layoutPintador)
+            val appBarraConstructor = appBarConfiguration.build() //cogemos el objeto buildeado
 
+        //tool bar con controlador para que navegue entre los fragmentos
+        toolbar.setupWithNavController(navControla, appBarraConstructor) //le ponemos los objetos con los que va a funcionar
 
+        //se le pasa el objeto que tiene el nav_graph de navigation para que el menu pase de un fragmento a otro
         val barraAbajo = findViewById<BottomNavigationView>(R.id.bottomtoolbar)
         barraAbajo.setupWithNavController(navControla)
+
+        //se le pasa el objeto que tiene el nav_graph de navigation para que el menu pase de un fragmento a otro
+        val barralado = findViewById<NavigationView>(R.id.sidetoolbar)
+        barralado.setupWithNavController(navControla)
 
     }
 
