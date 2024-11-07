@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.ud05_1_justit"
+    namespace = "com.example.a3_temporizador"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.ud05_1_justit"
+        applicationId = "com.example.a3_temporizador"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -40,7 +40,6 @@ android {
 
 dependencies {
 
-    implementation("com.google.android.material:material:1.12.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -49,5 +48,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
 }

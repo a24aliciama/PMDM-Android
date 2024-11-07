@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ud05_1_justit.databinding.FragmentOrderBinding
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
@@ -17,12 +18,20 @@ import com.google.android.material.snackbar.Snackbar
 
 class OrderFragment : Fragment() {
 
+
+    var bindingNull: FragmentOrderBinding? = null
+    val binding: FragmentOrderBinding
+        get() = bindingNull!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val vista = inflater.inflate(R.layout.fragment_order, container, false)
+        //val vista = inflater.inflate(R.layout.fragment_order, container, false)
+        bindingNull = FragmentOrderBinding.inflate(inflater,container,false)
+
+        val vista = binding.root
 
         //cogemos la barra para una variable
         val barraHerramientas = vista.findViewById<MaterialToolbar>(R.id.toolBarId)
@@ -118,6 +127,11 @@ class OrderFragment : Fragment() {
 
         //devolvemos la vista
         return vista
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        bindingNull = null
     }
 
 }
