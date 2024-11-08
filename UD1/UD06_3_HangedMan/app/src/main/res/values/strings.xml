@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">UD06_3_HangedMan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_InputText">Escribe una letra</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="aceptar">Aceptar</string>
+</resources>
