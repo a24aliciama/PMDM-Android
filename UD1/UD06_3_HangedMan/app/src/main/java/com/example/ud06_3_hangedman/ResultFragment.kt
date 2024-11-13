@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import com.example.ud06_3_hangedman.databinding.FragmentGameBinding
 import com.example.ud06_3_hangedman.databinding.FragmentResultBinding
 
@@ -39,7 +40,14 @@ class ResultFragment : Fragment() {
         }
 
         binding.aceptarID.setOnClickListener{
+
             Toast.makeText(activity, model.palabraR, Toast.LENGTH_LONG).show()
+            model.resetGame()
+
+            val navController = vista.findNavController()
+            navController.popBackStack(R.id.gameFragment, false)
+            navController.navigate(R.id.gameFragment)
+            //vista.findNavController().navigate(R.id.action_resultFragment_to_gameFragment)
         }
 
         // Inflate the layout for this fragment

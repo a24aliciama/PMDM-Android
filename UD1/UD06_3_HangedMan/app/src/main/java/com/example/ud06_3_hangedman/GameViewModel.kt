@@ -7,20 +7,35 @@ import androidx.lifecycle.ViewModel
 import java.util.Collections.list
 
 class GameViewModel : ViewModel() {
-    val palabras = listOf("vaca","pandilla","letra","pipo","carrusel","Prueba", "mimo","Estudio","odio","avaricia","tesoro","Coco" )
+    val palabras = listOf(
+        "perro","vaca","pandilla",
+        "letra","pipo","carrusel",
+        "Prueba", "botella", "movil",
+        "mimo","Estudio","odio",
+        "avaricia","tesoro","Coco" )
 
     var palabraR = palabras.random().uppercase()
 
     var palabraHidden = ""
 
     var vidas = 7
+    var contiene = false
 
     val charList: MutableList<Char> = mutableListOf()
 
     var ganador = 0
 
-    private val _toastMessage = MutableLiveData<String>()
-    val toastMessage: LiveData<String> get() = _toastMessage
+    var cont = 0;
+
+    fun resetGame() {
+        palabraR = palabras.random().uppercase() // Reasignar una nueva palabra aleatoria
+        palabraHidden = mostrarPalabraHidden(emptyList()) // Reiniciar la palabra oculta
+        vidas = 7 // Restablecer vidas
+        charList.clear() // Limpiar las letras ya intentadas
+        ganador = 0 // Resetear el estado de ganador
+        cont = 0
+        contiene = false
+    }
 
     fun mostrarPalabraHidden(listChar : List<Char>) = //este igual es un return
         //map recorre el string y te da char, it es un chat, es como un foreach
@@ -29,18 +44,31 @@ class GameViewModel : ViewModel() {
             else "_"  //esta devolviendo barra baja por cada char
         }.joinToString(" ") //se pasa a string y se suma un espacio
 
-    fun guess (charAttempt : Char){ //le añades el tipo de var para poder acceder a las funciones d ela clase char
-        if (charList.contains(charAttempt)) {
-            // Si la letra ya ha sido intentada, enviar mensaje al fragmento
-            _toastMessage.value = "Ya has intentado esa letra"
+    fun guess (charAttempt : Char){//le añades el tipo de var para poder acceder a las funciones d ela clase char
+        charAttempt.uppercaseChar()
+        contiene = false
+        cont= 0
 
-        } else { // Solo agregamos si no está en la lista
+        if (!charList.contains(charAttempt.uppercaseChar())) {
+            // Solo agregamos si no está en la lista
             charList.add(charAttempt.uppercaseChar())
-
-            if (!palabraR.contains(charAttempt)) {  // Si el intento es incorrecto
-                vidas--  // Restamos una vida
-            }
+        } else {
+            cont = 1
+            contiene = true
         }
+
+        if (palabraR.contains(charAttempt.uppercaseChar())){
+            contiene = true
+        }
+
+        if (!contiene){
+            vidas --
+        }
+
+        palabraHidden = mostrarPalabraHidden(charList)
+    }
+
+    fun inicio (charAttempt: Char){
         palabraHidden = mostrarPalabraHidden(charList)
     }
 

@@ -30,30 +30,34 @@ class GameFragment : Fragment() {
         bindingNull = FragmentGameBinding.inflate(inflater,container,false)
         val vista = binding.root
 
+        binding.vidasID.text = model.vidas.toString();
 
-        // Observar el LiveData para mostrar el Toast
-        model.toastMessage.observe(viewLifecycleOwner, Observer { message ->
-            message?.let {
-                Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
-            }
-        })
-
-        model.guess(' ')
+        model.inicio(' ')
 
         binding.secretWorldID.text = model.palabraHidden
 
         binding.siguienteID.setOnClickListener{
+
             val caracter = binding.inputTextID.text.toString()
             model.guess(caracter[0])
+
             binding.secretWorldID.text = model.palabraHidden
+            binding.vidasID.text = model.vidas.toString();
+
+            if (model.cont == 1){
+                Toast.makeText(activity, "Ya has intentado esa letra", Toast.LENGTH_SHORT).show()
+            }
 
             if (model.vidas == 0 ){
                 model.ganador = 0
                 vista.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
-            }else if(model.palabraR == model.palabraHidden){
+            }else if(!model.palabraHidden.contains("_")){
+
                 model.ganador = 1
                 vista.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
             }
+
+            binding.inputTextID.text.clear()
 
         }
 
