@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".OrderFragment"
+
+    >
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/botonfloatID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:src="@android:drawable/ic_menu_send"
+        >
+        <!--
+        app:fabCustomSize="45dp"
+        app:layout_anchor="@id/collapsadaToolbarID"
+        app:layout_anchorGravity="bottom|end"-->
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsadaToolbarID"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed" >
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/caturguer"
+                />
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolBarId"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                android:layout_width="match_parent"
+
+                android:layout_height="?attr/actionBarSize"
+
+                app:layout_collapseMode="pin"
+                app:title="Pipo tiene hambre" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollId"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        app:layout_anchor="@+id/scrollId"
+        app:layout_anchorGravity="center"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/layoutScrollId"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+
+            >
+
+            <TextView
+                android:id="@+id/textoOrderID"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:fontFamily="casual"
+                android:text="@string/order"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/radioBotonsID"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+                <RadioButton
+                    android:id="@+id/radioCatID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hamburguesa"
+                    android:textColor="@color/white"
+                    android:textSize="30sp">
+                </RadioButton>
+
+                <RadioButton
+                    android:id="@+id/radioPolloID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pollurguer"
+                    android:textColor="@color/white"
+                    android:textSize="30sp">
+                </RadioButton>
+                <RadioButton
+                    android:id="@+id/radioTofuID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tofurguer"
+                    android:textColor="@color/white"
+                    android:textSize="30sp">
+                </RadioButton>
+                <RadioButton
+                    android:id="@+id/radioCerdoID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cerdurguer"
+                    android:textColor="@color/white"
+                    android:textSize="30sp">
+                </RadioButton>
+                <RadioButton
+                    android:id="@+id/radioTerneraID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vacurguer"
+                    android:textColor="@color/white"
+                    android:textSize="30sp">
+                </RadioButton>
+        </RadioGroup>
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/ingredientesID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/quesoID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="queso"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                style="@style/Widget.MaterialComponents.Chip.Entry">
+
+            </com.google.android.material.chip.Chip>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/tomateID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tomate"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                style="@style/Widget.MaterialComponents.Chip.Filter">
+
+            </com.google.android.material.chip.Chip>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/lechugaID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="lechuga"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                style="@style/Widget.MaterialComponents.Chip.Choice">
+
+            </com.google.android.material.chip.Chip>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/pepinillosID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pepinillos"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                >
+
+            </com.google.android.material.chip.Chip>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/cebollaID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cebolla"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                >
+
+            </com.google.android.material.chip.Chip>
+
+        </com.google.android.material.chip.ChipGroup>
+<!--
+            <Button
+                android:id="@+id/botonenviarID"
+                android:layout_margin="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enviar"
+                android:layout_gravity="center"
+                >
+
+            </Button>
+-->
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

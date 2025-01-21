@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/sistemaFragment"
+        android:icon="@android:drawable/stat_sys_warning"
+        android:title="SistemaSolar"
+        app:showAsAction="never"
+        />
+    <!--app:showAsAction="always" esto es para que solo te ponga una accion,
+    en vez de tres puntos solo el help en ese caso-->
+
+    <item android:id="@+id/starsFragment"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="Estrellas"
+        app:showAsAction="never"
+        />
+    <item android:id="@+id/marteMoonFragment"
+        android:icon="@android:drawable/ic_dialog_map"
+        android:title="MarteyLuna"
+        app:showAsAction="never"
+        />
+    <item android:id="@+id/tecnologiaFragment"
+        android:icon="@android:drawable/ic_search_category_default"
+        android:title="Tecnologia"
+        app:showAsAction="never"
+        />
+
+</menu>

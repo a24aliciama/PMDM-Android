@@ -1,0 +1,5 @@
+https://www.jetbrains.com/es-es/compose-multiplatform/
+Marco de trabajo declarativo para compartir interfaces de usuario en varias plataformas. Basado en Kotlin Multiplatform y Jetpack Compose.
+
+https://manuais.pages.iessanclemente.net/plantillas/dam/pmdm/
+Programación multimedia e dispositivos móbiles.

@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">3_Temporizador</string>
-    <string name="pause">Pause</string>
-    <string name="start">Start</string>
-    <string name="restart">Restart</string>
-</resources>

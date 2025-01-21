@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Contos de Samain</string>
+    <string name="textoNombre">Pon o teu nome aqui</string>
+    <string name="seleccion">Escolle unha Historia</string>
+
+
+    <string name="siguiente">Seguinte</string>
+</resources>

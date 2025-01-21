@@ -1,5 +1,0 @@
-https://developer.android.com/codelabs/basic-android-kotlin-compose-kotlin-fundamentals-practice-problems?hl=es-419#0
-Práctica:Conceptos básicos de Kotlin
-
-https://datalore.jetbrains.com/notebooks
-datalore

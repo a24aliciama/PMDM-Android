@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/sistemaFragment"
+    >
+
+    <fragment
+        android:id="@+id/starsFragment"
+        android:name="com.example.ud04_1_ejercicio.StarsFragment"
+        android:label="fragment_stars"
+        tools:layout="@layout/fragment_stars" />
+    <fragment
+        android:id="@+id/sistemaFragment"
+        android:name="com.example.ud04_1_ejercicio.SistemaFragment"
+        android:label="fragment_sistema"
+        tools:layout="@layout/fragment_sistema" />
+    <fragment
+        android:id="@+id/marteMoonFragment"
+        android:name="com.example.ud04_1_ejercicio.MarteMoonFragment"
+        android:label="fragment_marte_moon"
+        tools:layout="@layout/fragment_marte_moon" />
+    <fragment
+        android:id="@+id/tecnologiaFragment"
+        android:name="com.example.ud04_1_ejercicio.TecnologiaFragment"
+        android:label="fragment_tecnologia"
+        tools:layout="@layout/fragment_tecnologia" />
+
+
+</navigation>
